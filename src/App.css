@@ -15,8 +15,8 @@ body{
 .App{
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    width: 22rem;
-    height: 25rem;
+    width: 25rem;
+    height: 30rem;
     display: flex;
     text-align: center;
     align-items: center;
@@ -32,8 +32,6 @@ header{
     color: white;
 }
 
-
-
 #linkSenha{
     display: flex;
     text-align: left;
@@ -41,6 +39,7 @@ header{
 }
 
 .linkCadastro{
+    text-align: left;
     margin-top: 0.5rem;
 }
 
