@@ -1,6 +1,7 @@
 import react, {Component} from 'react';
 import {Form, FormGroup, Input, Button, Alert} from 'reactstrap';
 import Header from '../Header';
+import '../styles/Login.css'
 
 export default class Login extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ export default class Login extends Component {
             throw new Error("Email ou senha inválido")
         }).then(token => {
             localStorage.setItem('token', token);
-         //   this.props.history.push("/tarefas");
+            this.props.history.push("/tarefas");
         }).catch( e => {
             this.setState({message: e.message})
             console.log(this.email, this.password)
@@ -41,7 +42,7 @@ export default class Login extends Component {
 
     render() {
         return(
-            <div>
+            <div className='Content'>
                 <Header title='ZupNotion'/>
                 {
                     this.state.message !== ''? (
@@ -56,8 +57,8 @@ export default class Login extends Component {
                         <Input type='password' id='password' placeholder='Senha'onChange={e => this.password = e.target.value}/>
                     </FormGroup>
                     <Button color='primary' onClick={this.signIn}>Entrar</Button>
-                    <a href="https://www.google.com/" className='link' id='linkSenha'>Esqueceu a senha?</a>
-                    <p className='linkCadastro'>Não tem conta? <a href="https://www.google.com/" className='link'>Cadastre-se</a></p>
+                    <a href="http://localhost:3000/esqueciMinhaSenha" className='link' id='linkSenha'>Esqueceu a senha?</a>
+                    <p className='linkCadastro'>Não tem conta? <a href="http://localhost:3000/cadastro" className='link'>Cadastre-se</a></p>
                 </Form>
             </div>
         )
