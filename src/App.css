@@ -55,6 +55,11 @@ header{
     margin-top: 2rem;
 }
 
+.linkSair{
+    margin-top: 2rem;
+    display: block;
+}
+
 #linkVoltarLogin{
     margin-top: 2rem;
     display: block;
