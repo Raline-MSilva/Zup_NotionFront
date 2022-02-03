@@ -1,7 +1,6 @@
 import react, {Component} from 'react';
 import {Form, FormGroup, Input, Button, Alert} from 'reactstrap';
 import Header from '../Header';
-import '../styles/Login.css'
 
 export default class Login extends Component {
     constructor(props) {
@@ -51,10 +50,10 @@ export default class Login extends Component {
                 }
                 <Form>
                     <FormGroup>
-                        <Input type='text' id='email' placeholder='Email'onChange={e => this.email = e.target.value}/>
+                        <Input type='text' id='email' placeholder='Email' onChange={e => this.email = e.target.value}/>
                     </FormGroup>
                     <FormGroup>
-                        <Input type='password' id='password' placeholder='Senha'onChange={e => this.password = e.target.value}/>
+                        <Input type='password' id='password' placeholder='Senha' onChange={e => this.password = e.target.value}/>
                     </FormGroup>
                     <Button color='primary' onClick={this.signIn}>Entrar</Button>
                     <a href="http://localhost:3000/esqueciMinhaSenha" className='link' id='linkSenha'>Esqueceu a senha?</a>
