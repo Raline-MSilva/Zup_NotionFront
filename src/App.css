@@ -51,6 +51,20 @@ header{
     margin-top: 0.5rem;
 }
 
+.linkLogin{
+    margin-top: 2rem;
+}
+
+.linkSair{
+    margin-top: 2rem;
+    display: block;
+}
+
+#linkVoltarLogin{
+    margin-top: 2rem;
+    display: block;
+}
+
 button {
     margin-top: 0.5rem;
     width: 100%;
