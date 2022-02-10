@@ -6,8 +6,11 @@ const Cadastro = (props) => {
     const [cor, setCor] = useState("")
     const dadosDaRequisicao = {
         nome: "",
+        sobrenome: "",
         email: "",
-        senha: ""
+        senha: "",
+        perguntaDeSeguranca: "",
+        respostaDeSeguranca: ""
     }
 
     const register = () => {
@@ -15,8 +18,11 @@ const Cadastro = (props) => {
         const url = "http://localhost:8080/usuario";
         const data = {
             nome: dadosDaRequisicao.nome,
+            sobrenome: dadosDaRequisicao.sobrenome,
             email: dadosDaRequisicao.email,
             senha: dadosDaRequisicao.senha,
+            perguntaDeSeguranca: dadosDaRequisicao.perguntaDeSeguranca,
+            respostaDeSeguranca: dadosDaRequisicao.respostaDeSeguranca
         };
         const requestInfo = {
             method: 'POST',
@@ -39,25 +45,39 @@ const Cadastro = (props) => {
             setMensagem('Dados inválidos')
             setCor('danger')
         });
+
     }
 
     return(
         <div className='Content'>
-            <Header title='ZupNotion'/>
+            <Header/>
             {
                 mensagem !== ''? (
                     <Alert color={cor} className='text-center'>{mensagem}</Alert>
                 ) : ''
             }
             <Form>
-                <FormGroup>
+                <FormGroup id='form-nome'>
                     <Input type='name' id='nome' placeholder='Nome' onChange={e => dadosDaRequisicao.nome = e.target.value}/>
+                    <Input type='name' id='sobrenome' placeholder='Sobrenome' onChange={e => dadosDaRequisicao.sobrenome = e.target.value}/>
                 </FormGroup>
                 <FormGroup>
-                    <Input type='text' id='email' placeholder='Email' onChange={e => dadosDaRequisicao.email = e.target.value}/>
+                    <Input type='email' id='email' placeholder='Email' onChange={e => dadosDaRequisicao.email = e.target.value}/>
                 </FormGroup>
                 <FormGroup>
                     <Input type='password' id='password' placeholder='Senha' onChange={e => dadosDaRequisicao.senha = e.target.value}/>
+                </FormGroup>
+                <FormGroup>
+                    <select name="perguntaDeSeguranca" id="perguntaDeSeguranca" onChange={e => dadosDaRequisicao.perguntaDeSeguranca = e.target.value}>
+                        <option class="form-controls" disabled selected value>Pergunta de segurança</option>
+                        <option class="form-controls" value="pergunta1">Qual é a sua comida favorita?</option>
+                        <option class="form-controls" value="pergunta2">Qual era o seu apelido de infância?</option>
+                        <option class="form-controls" value="pergunta3">Qual é o nome do meio do seu pai?</option>
+                    </select>
+                </FormGroup>
+                <FormGroup>
+                    <Input type='text' id='resposta-segurança' placeholder='Responda aqui' 
+                    onChange={e => dadosDaRequisicao.respostaDeSeguranca = e.target.value}/>
                 </FormGroup>
                 <Button color='primary' onClick={register}>Cadastre-se</Button>
                 <p className='linkLogin'>Já possui conta? <a href="http://localhost:3000/" className='link'>Conecte-se</a></p>
