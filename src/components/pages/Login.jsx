@@ -1,4 +1,4 @@
-import react, {Component} from 'react';
+import react, {Component, useState, setState} from 'react';
 import {Form, FormGroup, Input, Button, Alert} from 'reactstrap';
 import Header from '../Header';
 
@@ -26,7 +26,6 @@ export default class Login extends Component {
         fetch(url, requestInfo)
         .then(response => {
             if(response.ok){
-                console.log("O login foi realizado com sucesso.")
                 return response.headers.get("Authorization")
             }
             throw new Error("Email ou senha inválido")
@@ -42,7 +41,7 @@ export default class Login extends Component {
     render() {
         return(
             <div className='Content'>
-                <Header title='ZupNotion'/>
+                <Header/>
                 {
                     this.state.message !== ''? (
                         <Alert color='danger' className='text-center'>{this.state.message}</Alert>

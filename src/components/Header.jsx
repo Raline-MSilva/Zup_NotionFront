@@ -1,7 +1,10 @@
 import react from "react";
 
-const ComponenteHeader = ({title}) => (
-    <header><h1>{title}</h1></header>
+const ComponenteHeader = () => (
+    <header>
+        <h1>ZupNotion</h1>
+    </header>
+
 );
 
 export default ComponenteHeader;
